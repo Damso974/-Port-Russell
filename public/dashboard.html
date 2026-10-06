@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Port Russell</title>
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Port de plaisance Russell</h1>
+        <h2>Tableau de bord</h2>
+
+        <button id="logout-button">
+            Se déconnecter
+        </button>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Catways</h2>
+
+            <p>
+                Gestion des catways du port.
+            </p>
+
+            <a href="/catways.html">
+                Voir les catways
+            </a>
+        </section>
+
+        <section>
+            <h2>Créer un catway</h2>
+
+            <form id="create-catway-form">
+
+                <div>
+                    <label for="catway-number">
+                        Numéro du catway
+                    </label>
+
+                    <input type="number" id="catway-number" required>
+                </div>
+
+                <div>
+                    <label for="catway-type">
+                        Type
+                    </label>
+
+                    <select id="catway-type" required>
+                        <option value="short">
+                            Short
+                        </option>
+
+                        <option value="long">
+                            Long
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="catway-state">
+                        État
+                    </label>
+
+                    <input type="text" id="catway-state" required>
+                </div>
+
+                <button type="submit">
+                    Créer le catway
+                </button>
+
+            </form>
+
+            <p id="create-catway-message"></p>
+        </section>
+        <section>
+            <h2>Modifier un catway</h2>
+
+            <form id="update-catway-form">
+
+                <div>
+                    <label for="update-catway-number">
+                        Numéro du catway
+                    </label>
+
+                    <input type="number" id="update-catway-number" required>
+                </div>
+
+                <div>
+                    <label for="update-catway-state">
+                        Nouvel état
+                    </label>
+
+                    <input type="text" id="update-catway-state" required>
+                </div>
+
+                <button type="submit">
+                    Modifier le catway
+                </button>
+
+            </form>
+
+            <p id="update-catway-message"></p>
+        </section>
+        <section>
+            <h2>Supprimer un catway</h2>
+
+            <form id="delete-catway-form">
+
+                <div>
+                    <label for="delete-catway-number">
+                        Numéro du catway
+                    </label>
+
+                    <input type="number" id="delete-catway-number" required>
+                </div>
+
+                <button type="submit">
+                    Supprimer le catway
+                </button>
+
+            </form>
+
+            <p id="delete-catway-message"></p>
+        </section>
+
+        <section>
+            <h2>Réservations</h2>
+
+            <p>
+                Gestion des réservations.
+            </p>
+
+            <a href="/reservations.html">
+                Voir les réservations
+            </a>
+        </section>
+        <section>
+            <h2>Créer une réservation</h2>
+
+            <form id="create-reservation-form">
+
+                <div>
+                    <label for="reservation-catway">
+                        Numéro du catway
+                    </label>
+
+                    <input type="number" id="reservation-catway" required>
+                </div>
+
+                <div>
+                    <label for="reservation-client">
+                        Nom du client
+                    </label>
+
+                    <input type="text" id="reservation-client" required>
+                </div>
+
+                <div>
+                    <label for="reservation-boat">
+                        Nom du bateau
+                    </label>
+
+                    <input type="text" id="reservation-boat" required>
+                </div>
+
+                <div>
+                    <label for="reservation-checkin">
+                        Date d'arrivée
+                    </label>
+
+                    <input type="date" id="reservation-checkin" required>
+                </div>
+
+                <div>
+                    <label for="reservation-checkout">
+                        Date de départ
+                    </label>
+
+                    <input type="date" id="reservation-checkout" required>
+                </div>
+
+                <button type="submit">
+                    Créer la réservation
+                </button>
+
+            </form>
+
+            <p id="create-reservation-message"></p>
+        </section>
+
+
+        <section>
+            <h2>Utilisateurs</h2>
+
+            <p>
+                Gestion des utilisateurs de l'application.
+            </p>
+
+            <a href="/users.html">
+                Voir les utilisateurs
+            </a>
+        </section>
+        <section>
+            <h2>Créer un utilisateur</h2>
+
+            <form id="create-user-form">
+
+                <div>
+                    <label for="user-name">
+                        Nom
+                    </label>
+
+                    <input type="text" id="user-name" required>
+                </div>
+
+                <div>
+                    <label for="user-email">
+                        Email
+                    </label>
+
+                    <input type="email" id="user-email" required>
+                </div>
+
+                <div>
+                    <label for="user-password">
+                        Mot de passe
+                    </label>
+
+                    <input type="password" id="user-password" required>
+                </div>
+
+                <button type="submit">
+                    Créer l'utilisateur
+                </button>
+
+            </form>
+
+            <p id="create-user-message"></p>
+        </section>
+
+        <section>
+            <h2>Documentation</h2>
+
+            <a href="/documentation.html">
+                Consulter la documentation de l'API
+            </a>
+        </section>
+
+    </main>
+
+    <script src="/javascripts/dashboard.js"></script>
+
+</body>
+
+</html>
