@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prestart": "npm test",
-    "start": "env-cmd -f .env.production node ./bin/www",
+    "start":"node ./bin/www",
     "predev": "npm test",
     "dev": "env-cmd -f .env.development nodemon ./bin/www",
     "test": "env-cmd -f .env.test mocha"
