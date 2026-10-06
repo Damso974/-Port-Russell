@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prestart": "npm test",
     "start":"node ./bin/www",
     "predev": "npm test",
     "dev": "env-cmd -f .env.development nodemon ./bin/www",
