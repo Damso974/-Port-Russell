@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var helmet = require('helmet');
+
 var connectDB = require('./config/db');
 
 var indexRouter = require('./routes/index');
@@ -11,8 +13,10 @@ var catwaysRouter = require('./routes/catways');
 var reservationsRouter = require('./routes/reservations');
 
 var app = express();
+
 connectDB();
 
+app.use(helmet());
 
 app.use(logger('dev'));
 app.use(express.json());

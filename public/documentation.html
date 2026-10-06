@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Documentation API - Port Russell</title>
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Documentation API - Port Russell</h1>
+
+        <nav>
+            <a href="/">Accueil</a>
+            <a href="/dashboard.html">Tableau de bord</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- ============================= -->
+        <!-- VUE D'ENSEMBLE -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h2>1. Vue d'ensemble</h2>
+
+            <p>
+                L'API REST du Port de plaisance Russell permet
+                de gérer les utilisateurs, les catways et les
+                réservations du port.
+            </p>
+
+            <p>
+                L'application utilise Node.js, Express,
+                MongoDB et Mongoose.
+            </p>
+
+            <p>
+                Certaines routes nécessitent une authentification.
+                Lors de la connexion, un token JWT est enregistré
+                dans un cookie HTTP.
+            </p>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- TUTORIEL -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h2>2. Tutoriel</h2>
+
+            <h3>Créer un utilisateur</h3>
+
+            <p>Requête :</p>
+
+            <pre>
+POST /users
+Content-Type: application/json
+            </pre>
+
+            <p>Corps de la requête :</p>
+
+            <pre>
+{
+    "name": "Utilisateur Test",
+    "email": "test@russell.fr",
+    "password": "Test@1234"
+}
+            </pre>
+
+
+            <h3>Se connecter</h3>
+
+            <p>Requête :</p>
+
+            <pre>
+POST /users/login
+Content-Type: application/json
+            </pre>
+
+            <p>Corps de la requête :</p>
+
+            <pre>
+{
+    "email": "test@russell.fr",
+    "password": "Test@1234"
+}
+            </pre>
+
+            <p>
+                Après une connexion réussie, le serveur enregistre
+                le token d'authentification dans un cookie.
+            </p>
+
+            <p>
+                Ce cookie permet ensuite d'accéder aux routes
+                protégées de l'API.
+            </p>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- ROUTES UTILISATEURS -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h2>3. Routes de l'API</h2>
+
+            <h3>Utilisateurs</h3>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Méthode</th>
+                        <th>Route</th>
+                        <th>Description</th>
+                        <th>Authentification</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>POST</td>
+                        <td>/users</td>
+                        <td>Créer un utilisateur</td>
+                        <td>Non</td>
+                    </tr>
+
+                    <tr>
+                        <td>POST</td>
+                        <td>/users/login</td>
+                        <td>Connexion d'un utilisateur</td>
+                        <td>Non</td>
+                    </tr>
+
+                    <tr>
+                        <td>GET</td>
+                        <td>/users</td>
+                        <td>Afficher les utilisateurs</td>
+                        <td>Oui</td>
+                    </tr>
+
+                    <tr>
+                        <td>PATCH</td>
+                        <td>/users/:id</td>
+                        <td>Modifier un utilisateur</td>
+                        <td>Oui</td>
+                    </tr>
+
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/users/:id</td>
+                        <td>Supprimer un utilisateur</td>
+                        <td>Oui</td>
+                    </tr>
+
+                    <tr>
+                        <td>POST</td>
+                        <td>/users/logout</td>
+                        <td>Déconnexion</td>
+                        <td>Oui</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- ROUTES CATWAYS -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h3>Catways</h3>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Méthode</th>
+                        <th>Route</th>
+                        <th>Description</th>
+                        <th>Authentification</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>GET</td>
+                        <td>/catways</td>
+                        <td>Afficher tous les catways</td>
+                        <td>Oui</td>
+                    </tr>
+
+                    <tr>
+                        <td>GET</td>
+                        <td>/catways/:id</td>
+                        <td>Afficher un catway</td>
+                        <td>Oui</td>
+                    </tr>
+
+                    <tr>
+                        <td>POST</td>
+                        <td>/catways</td>
+                        <td>Créer un catway</td>
+                        <td>Oui</td>
+                    </tr>
+
+                    <tr>
+                        <td>PUT</td>
+                        <td>/catways/:id</td>
+                        <td>Remplacer complètement un catway</td>
+                        <td>Oui</td>
+                    </tr>
+
+                    <tr>
+                        <td>PATCH</td>
+                        <td>/catways/:id</td>
+                        <td>Modifier partiellement un catway</td>
+                        <td>Oui</td>
+                    </tr>
+
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/catways/:id</td>
+                        <td>Supprimer un catway</td>
+                        <td>Oui</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- ROUTES RESERVATIONS -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h3>Réservations</h3>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Méthode</th>
+                        <th>Route</th>
+                        <th>Description</th>
+                        <th>Authentification</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>GET</td>
+                        <td>/reservations</td>
+                        <td>Afficher toutes les réservations</td>
+                        <td>Oui</td>
+                    </tr>
+
+                    <tr>
+                        <td>GET</td>
+                        <td>/catways/:id/reservations</td>
+                        <td>Afficher les réservations d'un catway</td>
+                        <td>Oui</td>
+                    </tr>
+
+                    <tr>
+                        <td>GET</td>
+                        <td>/catways/:id/reservations/:idReservation</td>
+                        <td>Afficher une réservation</td>
+                        <td>Oui</td>
+                    </tr>
+
+                    <tr>
+                        <td>POST</td>
+                        <td>/catways/:id/reservations</td>
+                        <td>Créer une réservation</td>
+                        <td>Oui</td>
+                    </tr>
+
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/catways/:id/reservations/:idReservation</td>
+                        <td>Supprimer une réservation</td>
+                        <td>Oui</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- EXEMPLES -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h2>4. Exemples</h2>
+
+
+            <h3>Créer un catway</h3>
+
+            <pre>
+POST /catways
+
+{
+    "catwayNumber": 36,
+    "type": "long",
+    "catwayState": "Bon état"
+}
+            </pre>
+
+
+            <h3>Modifier l'état d'un catway</h3>
+
+            <pre>
+PATCH /catways/36
+
+{
+    "catwayState": "Maintenance"
+}
+            </pre>
+
+
+            <h3>Créer une réservation</h3>
+
+            <pre>
+POST /catways/4/reservations
+
+{
+    "clientName": "Jean Dupont",
+    "boatName": "Océan",
+    "checkIn": "2026-10-10",
+    "checkOut": "2026-10-15"
+}
+            </pre>
+
+
+            <h3>Supprimer une réservation</h3>
+
+            <pre>
+DELETE /catways/4/reservations/:idReservation
+            </pre>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- GLOSSAIRE -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h2>5. Glossaire</h2>
+
+            <dl>
+
+                <dt>API</dt>
+                <dd>
+                    Interface permettant à différentes applications
+                    de communiquer entre elles.
+                </dd>
+
+
+                <dt>REST</dt>
+                <dd>
+                    Architecture utilisant notamment les méthodes
+                    HTTP GET, POST, PUT, PATCH et DELETE.
+                </dd>
+
+
+                <dt>Catway</dt>
+                <dd>
+                    Emplacement du port permettant l'amarrage
+                    d'un bateau.
+                </dd>
+
+
+                <dt>JWT</dt>
+                <dd>
+                    JSON Web Token utilisé pour authentifier
+                    un utilisateur.
+                </dd>
+
+
+                <dt>MongoDB</dt>
+                <dd>
+                    Base de données NoSQL utilisée par l'application.
+                </dd>
+
+
+                <dt>Mongoose</dt>
+                <dd>
+                    Bibliothèque permettant de manipuler MongoDB
+                    depuis une application Node.js.
+                </dd>
+
+
+                <dt>Middleware</dt>
+                <dd>
+                    Fonction exécutée entre la réception d'une requête
+                    et son traitement par le contrôleur.
+                </dd>
+
+
+                <dt>CRUD</dt>
+                <dd>
+                    Create, Read, Update et Delete :
+                    les quatre opérations principales de gestion
+                    des données.
+                </dd>
+
+            </dl>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Port de plaisance Russell - Documentation API
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

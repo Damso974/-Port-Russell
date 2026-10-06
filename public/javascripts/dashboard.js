@@ -1,3 +1,40 @@
+
+// ========================================
+// Vérification de l'authentification
+// ========================================
+
+const checkAuthentication = async () => {
+
+    try {
+
+        const response = await fetch('/users/me');
+
+
+        if (!response.ok) {
+            window.location.href = '/';
+            return;
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            'Erreur lors de la vérification de l’authentification',
+            error
+        );
+
+        window.location.href = '/';
+    }
+};
+
+
+checkAuthentication();
+
+
+// ========================================
+// Déconnexion
+// ========================================
+
 const logoutButton = document.getElementById('logout-button');
 
 logoutButton.addEventListener('click', async function () {
@@ -20,6 +57,12 @@ logoutButton.addEventListener('click', async function () {
     }
 
 });
+
+
+// ========================================
+// Création d'un catway
+// ========================================
+
 const createCatwayForm =
     document.getElementById('create-catway-form');
 
@@ -93,6 +136,12 @@ createCatwayForm.addEventListener('submit', async function (event) {
     }
 
 });
+
+
+// ========================================
+// Modification d'un catway
+// ========================================
+
 const updateCatwayForm =
     document.getElementById('update-catway-form');
 
@@ -172,6 +221,12 @@ updateCatwayForm.addEventListener('submit', async function (event) {
     }
 
 });
+
+
+// ========================================
+// Suppression d'un catway
+// ========================================
+
 const deleteCatwayForm =
     document.getElementById('delete-catway-form');
 
@@ -250,6 +305,12 @@ deleteCatwayForm.addEventListener('submit', async function (event) {
     }
 
 });
+
+
+// ========================================
+// Création d'une réservation
+// ========================================
+
 const createReservationForm =
     document.getElementById('create-reservation-form');
 
@@ -342,6 +403,12 @@ createReservationForm.addEventListener('submit', async function (event) {
     }
 
 });
+
+
+// ========================================
+// Création d'un utilisateur
+// ========================================
+
 const createUserForm =
     document.getElementById('create-user-form');
 
